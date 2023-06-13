@@ -1,0 +1,69 @@
+<div class="background">
+<app-nav-bar></app-nav-bar>
+
+
+<div class="container mt-3">
+  <div class="card">
+    <h2 class="card-header text-center"><b>View Backup</b></h2>
+    <div class="form-group">
+      <div class="radio-container">
+        <label>
+          <input type="radio" name="option" value="option1"  (click)="viewbackupmongo('option1')" />
+          <span class="radio-label">MongoDB</span>
+        </label>
+        <label>
+          <input type="radio" name="option" value="option2" (click)="viewbackupsql('option2')"/>
+          <span class="radio-label">MySQL</span>
+        </label>
+      </div>
+    </div>
+
+    <div *ngIf="selectedOption ">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="datePicker">
+            <label for="datePicker" class="label">Select Date</label>
+            <br>
+            <input type="date" [(ngModel)]="selectedDate" class="select">
+          </div>
+        </div>
+      </div><br><br>
+      <button class="button" *ngIf="selectedDate" (click)="populateTable()"> View Backup</button>
+    </div>
+
+  <div *ngIf="filteredData.length"> 
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Backup Date</th>
+          <th>Content</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredData">
+          <td>{{ item.name }}</td>
+          <td>
+            <ul>
+            <li *ngFor="let content of item.contents">{{ content }}</li>
+            </ul>
+          </td>
+          <td><a href="{{ item.downloadLink }}" target="_blank">Download</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+  
+
+
+

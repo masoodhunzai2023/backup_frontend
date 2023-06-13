@@ -1,0 +1,118 @@
+<!-- <div class="background">
+  <app-nav-bar></app-nav-bar>
+  
+  <div class="container mt-3">
+    <div class="card">
+      <h2 class="card-header text-center"><b>Take Backup</b></h2>
+      <div class="form-group">
+        <div class="radio-container">
+          <label>
+            <input type="radio" name="option" value="option1" (click)="getDataFromBackendmongo('option1')"/>
+            <span class="radio-label">MongoDB</span>
+          </label>
+          <label>
+            <input type="radio" name="option" value="option2" (click)="getDataFromBackendsql('option2')"/>
+            <span class="radio-label">MySQL</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="selectedOption">
+        <ul class="option-list">
+        <mat-form-field>
+        <mat-label>Select Databases</mat-label>
+        <mat-select multiple [(ngModel)]="selectedOptions">
+          <mat-option *ngFor="let option of dropdownData" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+        </mat-form-field> 
+        </ul>
+        <button class="btn btn-dark" (click)="showResults()">Backup</button>
+      </div>
+      <div *ngIf="backupInProgress">
+        <p>Backup in progress...</p>
+      </div>
+      <div *ngIf="backupInProgress" class="spinner-border" role="status">
+        <span class="sr-only loader"></span>
+      </div>
+      
+      <div *ngIf="results.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Date/Time</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of results">
+              <td>{{ result.option }}</td>
+              <td>{{ result.result }}</td>
+              <td><a href="{{ result.downloadLink }}">Download</a></td><br><br>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+ -->
+
+
+ <div class="background">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="container mt-3">
+    <div class="card">
+      <h2 class="card-header text-center"><b>Take Backup</b></h2>
+      <div class="form-group">
+        <div class="radio-container">
+          <label>
+            <input type="radio" name="option" value="option1" (click)="getDataFromBackendmongo('option1')" />
+            <span class="radio-label">MongoDB</span>
+          </label>
+          <label>
+            <input type="radio" name="option" value="option2" (click)="getDataFromBackendsql('option2')" />
+            <span class="radio-label">MySQL</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="selectedOption">
+        <ul class="option-list">
+          <mat-form-field>
+            <mat-label>Select Databases</mat-label>
+            <mat-select multiple [(ngModel)]="selectedOptions">
+              <mat-option *ngFor="let option of dropdownData" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ul>
+        <button class="btn btn-dark" (click)="showResults()">Backup</button>
+        <!-- <button class="btn btn-dark" (click)="openLocationDialog()">Path</button> -->
+      </div>
+      <div *ngIf="backupInProgress">
+        <p>Backup in progress...</p>
+      </div>
+      <div *ngIf="backupInProgress" class="spinner-border" role="status">
+        <span class="sr-only loader"></span>
+      </div>
+
+      <div *ngIf="results.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Date/Time</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of results">
+              <td>{{ result.option }}</td>
+              <td>{{ result.result }}</td>
+              <td><a href="{{ result.downloadLink }}">Download</a></td><br /><br />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

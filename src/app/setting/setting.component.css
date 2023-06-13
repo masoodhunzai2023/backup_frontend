@@ -1,0 +1,134 @@
+.background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./setting3.PNG');
+  background-size: cover;
+  background-position: center center;
+  opacity: 1;
+  overflow: auto;
+} 
+  .card {
+    align-items: center; 
+    box-shadow: 5px 5px 5px #507998;
+    font-family: 'Times New Roman';
+    width: 400px;
+    font-size: 20px;
+    background: #01061b;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+  .card form {
+    
+    width: 120%;
+  }
+
+  .card label{
+    color: white;
+    font-size: 24px;
+  }
+
+  .card input {
+    font-size: 16px;
+    padding: 10px;
+    width: 80%;
+  }
+  
+  a {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: white;
+  }
+  
+  .box h2{
+    color: white;
+    font-size: 30px;
+    font-family: 'Times New Roman';
+  }
+  
+   .button {
+    border: 4px solid rgb(19, 20, 21);
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 40px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #3e5285; 
+    color: rgb(253, 251, 251); 
+    border-radius: 30px;
+    
+  }
+
+    
+  .button1 {
+  
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 40px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: rgb(5, 80, 116);
+    color: rgb(253, 251, 251); 
+  }
+
+  li {
+    margin: 10px;
+  }
+
+  .button1:hover {
+    background-color: #ecf2f4;
+    color: rgb(10, 10, 10);
+  }
+
+  .button:hover {
+    background-color: #ecf2f4;
+    color: rgb(10, 10, 10);
+  }
+  
+  #error {
+    color: red;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .data-table {
+    width: 30%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: aliceblue;
+  }
+
+  .data-table th {
+    background-color: #616883;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background-color: #c6bfe9;
+  }
