@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-// import { ToastController } from 'ionic-angular'; 
+
 
 @Component({
   selector: 'app-restorebackup',
@@ -49,7 +49,7 @@ export class RestorebackupComponent implements OnInit {
 
   populateTable() {
     if (this.selectedOption === 'option1') {
-      this.http.get(`http://192.168.1.82:8080/mongo/showBackup/${this.formatDate(new Date(this.selectedDate))}`).subscribe((data: any) => {
+      this.http.get(`http://192.168.1.88:8080/mongo/showBackup/${this.formatDate(new Date(this.selectedDate))}`).subscribe((data: any) => {
         if (Object.keys(data).length === 0) {
           this.filteredData = []; // No data backup on selected date
           alert('No data backup available for the selected date');
@@ -58,13 +58,13 @@ export class RestorebackupComponent implements OnInit {
             return {
               name: key,
               contents: value,
-              downloadLink: `http://192.168.1.82:8080/mongo/zip/${key}`
+              downloadLink: `http://192.168.1.88:8080/mongo/zip/${key}`
             };
           });
         }
       });
     } else if (this.selectedOption === 'option2') {
-      this.http.get(`http://192.168.1.82:8080/sql/showBackupFiles/${this.formatDate(new Date(this.selectedDate))}`).subscribe((data: any) => {
+      this.http.get(`http://192.168.1.88:8080/sql/showBackupFiles/${this.formatDate(new Date(this.selectedDate))}`).subscribe((data: any) => {
         if (Object.keys(data).length === 0) {
           this.filteredData = []; // No data backup on selected date
           alert('No data backup available for the selected date');
@@ -73,7 +73,7 @@ export class RestorebackupComponent implements OnInit {
             return {
               name: key,
               contents: value,
-              downloadLink: `http://192.168.1.82:8080/sql/createzip/${key}`
+              downloadLink: `http://192.168.1.88:8080/sql/createzip/${key}`
             };
           });
         }
@@ -104,7 +104,7 @@ export class RestorebackupComponent implements OnInit {
       if (date.selected) {
         if(this.selectedOption === "option1")
           date.contents.forEach((type:string) =>{
-            this.http.get(`http://192.168.1.82:8080/mongo/restore/${date.name}/${type}`).subscribe(
+            this.http.get(`http://192.168.1.88:8080/mongo/restore/${date.name}/${type}`).subscribe(
               (response) => {
                 const result= 
                 // handle success
@@ -120,7 +120,7 @@ export class RestorebackupComponent implements OnInit {
           if(this.selectedOption === "option2")
 
           date.contents.forEach((type:string) =>{
-            this.http.get(`http://192.168.1.82:8080/sql/restore/${date.name}/${type}`).subscribe(
+            this.http.get(`http://192.168.1.88:8080/sql/restore/${date.name}/${type}`).subscribe(
               (response) => {
                 // handle success
                 console.log(response);

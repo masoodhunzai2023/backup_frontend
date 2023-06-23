@@ -24,12 +24,14 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
 import { LocationDialogComponentComponent } from './location-dialog-component/location-dialog-component.component';
+import { CleanDbComponent } from './clean-db/clean-db.component';
 
 
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -47,6 +49,7 @@ import { LocationDialogComponentComponent } from './location-dialog-component/lo
     RestorebackupComponent,
     SettingComponent,
     LocationDialogComponentComponent,
+    CleanDbComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { LocationDialogComponentComponent } from './location-dialog-component/lo
     NgbModule,
     MatTabsModule,
     RouterModule,
+    NgxPaginationModule,
     
     // BsDatepickerModule.forRoot()
   ],

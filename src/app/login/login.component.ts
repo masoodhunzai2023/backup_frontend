@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthServiceService } from '../auth-service.service';
 
 
 @Component({
@@ -25,7 +24,6 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private toastr: ToastrService,
-    private authService: AuthServiceService,
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +31,6 @@ export class LoginComponent implements OnInit {
   }
  
   login() {
-    console.log(this.login_form.value);
     this.http.get<any>('http://localhost:3000/signup').subscribe((response) => {
         const user = response.find((a: any) => {
           return (
@@ -47,6 +44,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.toastr.error('Invalid username or password');
         }
+        console.log(this.login_form.value);
     },
     (error: any) => {
       alert('something went wrong');

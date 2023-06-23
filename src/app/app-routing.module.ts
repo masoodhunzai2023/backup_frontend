@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import {TakebackupComponent} from './takebackup/takebackup.component';
+import { TakebackupComponent} from './takebackup/takebackup.component';
 import { ViewbackupComponent } from './viewbackup/viewbackup.component';
 import { RestorebackupComponent } from './restorebackup/restorebackup.component';
 import { SettingComponent } from './setting/setting.component';
+import { CleanDbComponent } from './clean-db/clean-db.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'takebackup', component:TakebackupComponent},
   {path:'viewbackup', component:ViewbackupComponent},
   {path:'restorebackup', component:RestorebackupComponent},
+  {path:'clean-db' , component:CleanDbComponent},
   {path:'setting', component:SettingComponent},
 
 

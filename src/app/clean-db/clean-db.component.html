@@ -1,0 +1,66 @@
+<div class="background">
+  <app-nav-bar></app-nav-bar>
+ 
+  <div class="container mt-3">
+    <div class="card">
+      <h2 class="card-header text-center"><b>Database Cleaning</b></h2>
+      <div class="form-group">
+        <div class="radio-container">
+          <label>
+            <input type="radio" name="option" value="option1" (click)="getDataFromBackendmongo('option1')" />
+            <span class="radio-label">MongoDB</span>
+          </label>
+          <label>
+            <input type="radio" name="option" value="option2" (click)="getDataFromBackendsql('option2')" />
+            <span class="radio-label">MySQL</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div *ngIf="selectedOption">
+        <ul class="option-list">
+          <mat-form-field>
+            <mat-label>Select Databases</mat-label>
+            <mat-select multiple [(ngModel)]="selectedOptions">
+              <mat-option *ngFor="let option of dropdownData" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ul>
+        <button class="btn btn-dark" (click)="showResults()">Show Databases</button>
+      </div>
+      <div *ngIf="showdatabases">
+        <p>Databases in progress...</p>
+      </div>
+      <div *ngIf="showdatabases" class="spinner-border" role="status">
+        <span class="sr-only loader"></span>
+      </div>
+      <div *ngIf="results.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Database names</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of results | paginate: { itemsPerPage: pageSize, currentPage: p }">
+              <td>{{ item.name }}</td>
+              <td><input type="checkbox" [(ngModel)]="item.selected"(change)="onCheckboxChange(item)" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="onPageChange($event)" class="pagination"></pagination-controls>
+        <button class="btn btn-danger" (click)="removeSelected()">Truncate</button><br><br>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Enter the orga code" required [(ngModel)]="orgaCode">
+          <br>
+          <button class="submit" (click)="deleteOrgaCode($event)">Delete Orga Code</button>
+          <button class="submit" (click)="Del_rest_of_orga_code($event)"> rest of Orga Code</button>
+        
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+

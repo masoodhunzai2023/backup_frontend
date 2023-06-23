@@ -62,7 +62,7 @@ export class SettingComponent {
     };
 
     console.log('Form Data:', formData);
-    const URL = `http://192.168.1.82:8080/mongo/saveMongoHost/body`;
+    const URL = `http://192.168.1.88:8080/mongo/saveMongoHost/body`;
   
     this.http.post(URL,formData).subscribe(
         response => {
@@ -93,7 +93,7 @@ export class SettingComponent {
     };
 
     console.log('Form Data:', formData);
-    const URL = `http://192.168.1.82:8080/sql/saveMysqlHost/body`;
+    const URL = `http://192.168.1.88:8080/sql/saveMysqlHost/body`;
   
     this.http.post(URL,formData).subscribe(
         response => {
@@ -119,12 +119,12 @@ export class SettingComponent {
 
   viewinTable() {
     if (this.showMongoForm === true) {
-      this.http.get('http://192.168.1.82:8080/mongo/getMongoHost').subscribe((data: any) => {
+      this.http.get('http://192.168.1.88:8080/mongo/getMongoHost').subscribe((data: any) => {
         this.results = Array.isArray(data) ? data : [data];
         this.showTable = true;
       });
     } else if (this.showMySQLForm === true) {
-      this.http.get('http://192.168.1.82:8080/sql/getMysqlHost').subscribe((data: any) => {
+      this.http.get('http://192.168.1.88:8080/sql/getMysqlHost').subscribe((data: any) => {
         this.results = Array.isArray(data) ? data : [data];
         this.showTable = true;
       });
